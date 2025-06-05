@@ -5,7 +5,7 @@ on:
 
 jobs:
     lint:
-        name: lint(eslint)
+        name: lint (eslint)
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
@@ -23,7 +23,7 @@ jobs:
               run: npx eslint src --ext .js,.jsx,.ts,.tsx
 
     formatting:
-        name: formatting check(prettier)
+        name: formatting (prettier)
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
