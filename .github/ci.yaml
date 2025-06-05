@@ -1,0 +1,59 @@
+name: ci
+
+on:
+    pull_request:
+
+jobs:
+    lint:
+        name: lint(eslint)
+        runs-on: ubunto-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: latest
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run ESLint
+              run: npx eslint src --ext .js,.jsx,.ts,.tsx
+
+    formatting:
+        name: formatting check(prettier)
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: latest
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Check code formatting with prettier
+              run: npx prettier . --check
+
+    build:
+        name: validate build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: latest
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run Build
+              run: npm run build
