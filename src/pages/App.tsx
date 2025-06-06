@@ -48,14 +48,14 @@ export function App() {
                     </h2>
                 </span>
                 <div className="buttons">
-                    <CardButton onClick={() => dispatch(trackerDispatch.increment())} ariaLabel="Increment Count">
-                        Increment
+                    <CardButton onClick={() => dispatch(trackerDispatch.decrement())} ariaLabel="Decrement Count">
+                        Decrement
                     </CardButton>
                     <CardButton onClick={() => dispatch(trackerDispatch.clear())} ariaLabel="Clear Count">
                         Clear
                     </CardButton>
-                    <CardButton onClick={() => dispatch(trackerDispatch.decrement())} ariaLabel="Decrement Count">
-                        Decrement
+                    <CardButton onClick={() => dispatch(trackerDispatch.increment())} ariaLabel="Increment Count">
+                        Increment
                     </CardButton>
                 </div>
             </div>
