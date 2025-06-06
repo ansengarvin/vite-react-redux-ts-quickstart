@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import countReducer from "./countSlice";
+import trackerReducer from "./trackerSlice";
 import { useDispatch } from "react-redux";
 
 export const store = configureStore({
     reducer: {
-        count: countReducer,
+        tracker: trackerReducer,
     },
 });
 

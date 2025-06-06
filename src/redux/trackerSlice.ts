@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface CountState {
+export interface TrackerState {
     count: number;
 }
 
-const initialState: CountState = {
+const initialState: TrackerState = {
     count: 0,
 };
 
-export const countSlice = createSlice({
-    name: "count",
+export const trackerSlice = createSlice({
+    name: "tracker",
     initialState,
     reducers: {
         increment: (state) => {
@@ -24,10 +24,10 @@ export const countSlice = createSlice({
     },
 });
 
-const { increment, decrement, clear } = countSlice.actions;
-export const countDispatch = {
+const { increment, decrement, clear } = trackerSlice.actions;
+export const trackerDispatch = {
     increment,
     decrement,
     clear,
 };
-export default countSlice.reducer;
+export default trackerSlice.reducer;
