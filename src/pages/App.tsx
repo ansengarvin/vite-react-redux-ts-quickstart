@@ -43,6 +43,10 @@ export function App() {
             <div className="card">
                 <span>
                     <h2>Count is </h2>
+                    {/* 
+                        Setting key={count} remounts component every time count changes, allowing animation to instantly
+                        replay on click.
+                    */}
                     <h2 key={count} className={`count ${animate ? "animate" : ""}`}>
                         {count}
                     </h2>
