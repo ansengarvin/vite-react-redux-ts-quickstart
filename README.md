@@ -48,10 +48,8 @@ Reconfigure based on your needs.
 src/
 ├── assets/         # Images, Palettes, etc.
 ├── components/     # Reusable UI components
-├── hooks/          # Custom React hooks
 ├── pages/          # React pages and routes
 ├── styles/         # Global styles and theme
-└── utils/          # Utility functions
 ```
 
 ## License
