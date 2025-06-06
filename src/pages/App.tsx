@@ -137,6 +137,13 @@ const AppStyle = styled.div`
             color 0.25s ease-in-out,
             border 0.25s ease-in-out;
     }
+    button:focus {
+        outline: 2px solid #61dafb;
+        outline-offset: 2px;
+    }
+    button:active {
+        transform: scale(0.98);
+    }
 
     button:hover {
         cursor: pointer;
