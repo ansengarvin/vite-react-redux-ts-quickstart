@@ -6,10 +6,30 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, type RootState } from "../redux/store";
 import { trackerDispatch } from "../redux/trackerSlice";
 import { keyframes } from "@emotion/react";
+import { useEffect, useRef, useState } from "react";
+
+const BOUNCE_MS = 750; // Duration of the bounce animation in milliseconds
 
 export function App() {
     const count = useSelector((state: RootState) => state.tracker.count);
     const dispatch = useAppDispatch();
+    const [animate, setAnimate] = useState(false);
+    const isFirstRender = useRef(true);
+
+    useEffect(() => {
+        // Do not animate on the first render
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+        setAnimate(true);
+        const timer = setTimeout(() => {
+            setAnimate(false);
+        }, BOUNCE_MS);
+
+        return () => clearTimeout(timer); // Cleanup the timer on unmount
+    }, [count]);
+
     return (
         <AppStyle>
             <div className="logos">
@@ -23,15 +43,14 @@ export function App() {
                     <img src={redux} alt="Redux Toolkit logo" />
                 </a>
             </div>
-            <h1>Vite, React, Redux, Emotion, TS</h1>
+            <h1>Vite, React, Redux, Emotion, Typscript</h1>
             <div className="card">
                 <span>
                     <h2>Count is </h2>
-                    <h2>{count}</h2>
+                    <h2 className={`count ${animate ? "animate" : ""}`}>{count}</h2>
                 </span>
                 <div className="buttons">
                     <button onClick={() => dispatch(trackerDispatch.decrement())}>Decrement</button>
-
                     <button onClick={() => dispatch(trackerDispatch.clear())}>Clear</button>
                     <button onClick={() => dispatch(trackerDispatch.increment())}>Increment</button>
                 </div>
@@ -44,13 +63,22 @@ export function App() {
     );
 }
 
-const colorFade = keyframes`
-    from {
-        background-color: #282c34;
-    }
-    to {
-        background-color: white;
-    }
+const bounceAnim = keyframes`
+  from, 20%, 53%, 80%, to {
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-2px,0);
+  }
 `;
 
 const AppStyle = styled.div`
@@ -61,6 +89,14 @@ const AppStyle = styled.div`
     justify-content: center;
     h2 {
         display: inline;
+    }
+    h2.count {
+        display: inline-block;
+        color: #61dafb; // React blue
+    }
+    h2.animate {
+        display: inline-block;
+        animation: ${bounceAnim} ${BOUNCE_MS}ms;
     }
     div.logos,
     div.buttons {
