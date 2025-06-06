@@ -7,6 +7,7 @@ import { useAppDispatch, type RootState } from "../redux/store";
 import { trackerDispatch } from "../redux/trackerSlice";
 import { keyframes } from "@emotion/react";
 import { useEffect, useState } from "react";
+import { CardButton } from "../components/CardButton";
 
 const BOUNCE_MS = 500; // Duration of the bounce animation in milliseconds
 
@@ -47,15 +48,15 @@ export function App() {
                     </h2>
                 </span>
                 <div className="buttons">
-                    <button onClick={() => dispatch(trackerDispatch.decrement())} aria-label="Decrease count">
-                        Decrement
-                    </button>
-                    <button onClick={() => dispatch(trackerDispatch.clear())} aria-label="Clear count">
-                        Clear
-                    </button>
-                    <button onClick={() => dispatch(trackerDispatch.increment())} aria-label="Increment count">
+                    <CardButton onClick={() => dispatch(trackerDispatch.increment())} ariaLabel="Increment Count">
                         Increment
-                    </button>
+                    </CardButton>
+                    <CardButton onClick={() => dispatch(trackerDispatch.clear())} ariaLabel="Clear Count">
+                        Clear
+                    </CardButton>
+                    <CardButton onClick={() => dispatch(trackerDispatch.decrement())} ariaLabel="Decrement Count">
+                        Decrement
+                    </CardButton>
                 </div>
             </div>
             <p>
@@ -126,27 +127,5 @@ const AppStyle = styled.div`
     img {
         width: 50px;
         height: 50px;
-    }
-    button {
-        // Remove all styling
-        all: unset;
-
-        // Add my own styling
-        border: 2px solid white;
-        padding: 10px;
-        transition:
-            background-color 0.25s ease-in-out,
-            color 0.25s ease-in-out,
-            border 0.25s ease-in-out;
-    }
-    button:active {
-        transform: scale(0.98);
-    }
-
-    button:hover,
-    button:focus-visible {
-        cursor: pointer;
-        background-color: white;
-        color: #282c34;
     }
 `;
