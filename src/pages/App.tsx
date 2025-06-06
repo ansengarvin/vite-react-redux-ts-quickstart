@@ -38,7 +38,7 @@ export function App() {
                     <img src={redux} alt="Redux Toolkit logo" />
                 </a>
             </div>
-            <h1>Vite, React, Redux, Emotion, Typscript</h1>
+            <h1>Vite, React, Redux, Emotion, TypeScript</h1>
             <div className="card">
                 <span>
                     <h2>Count is </h2>
