@@ -50,6 +50,7 @@ src/
 ├── components/     # Reusable UI components
 ├── pages/          # React pages and routes
 ├── redux/          # Redux files (store and slices)
+├── styles/         # Global styles and emotion themes
 ```
 
 ## License
