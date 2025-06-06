@@ -47,13 +47,13 @@ export function App() {
                     </h2>
                 </span>
                 <div className="buttons">
-                    <button onClick={() => dispatch(trackerDispatch.decrement())} area-label="Decrease count">
+                    <button onClick={() => dispatch(trackerDispatch.decrement())} aria-label="Decrease count">
                         Decrement
                     </button>
-                    <button onClick={() => dispatch(trackerDispatch.clear())} area-label="Clear count">
+                    <button onClick={() => dispatch(trackerDispatch.clear())} aria-label="Clear count">
                         Clear
                     </button>
-                    <button onClick={() => dispatch(trackerDispatch.increment())} area-label="Increment count">
+                    <button onClick={() => dispatch(trackerDispatch.increment())} aria-label="Increment count">
                         Increment
                     </button>
                 </div>
