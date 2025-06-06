@@ -42,7 +42,9 @@ export function App() {
             <div className="card">
                 <span>
                     <h2>Count is </h2>
-                    <h2 className={`count ${animate ? "animate" : ""}`}>{count}</h2>
+                    <h2 key={count} className={`count ${animate ? "animate" : ""}`}>
+                        {count}
+                    </h2>
                 </span>
                 <div className="buttons">
                     <button onClick={() => dispatch(trackerDispatch.decrement())} area-label="Decrease count">
