@@ -8,7 +8,7 @@ import { trackerDispatch } from "../redux/trackerSlice";
 import { keyframes } from "@emotion/react";
 import { useEffect, useState } from "react";
 
-const BOUNCE_MS = 750; // Duration of the bounce animation in milliseconds
+const BOUNCE_MS = 500; // Duration of the bounce animation in milliseconds
 
 export function App() {
     const count = useSelector((state: RootState) => state.tracker.count);
@@ -70,11 +70,11 @@ const bounceAnim = keyframes`
   }
 
   40%, 43% {
-    transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -15px, 0);
   }
 
   70% {
-    transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -10px, 0);
   }
 
   90% {
@@ -137,15 +137,12 @@ const AppStyle = styled.div`
             color 0.25s ease-in-out,
             border 0.25s ease-in-out;
     }
-    button:focus {
-        outline: 2px solid #61dafb;
-        outline-offset: 2px;
-    }
     button:active {
         transform: scale(0.98);
     }
 
-    button:hover {
+    button:hover,
+    button:focus-visible {
         cursor: pointer;
         background-color: white;
         color: #282c34;
