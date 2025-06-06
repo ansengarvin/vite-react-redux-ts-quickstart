@@ -49,7 +49,7 @@ src/
 ├── assets/         # Images, Palettes, etc.
 ├── components/     # Reusable UI components
 ├── pages/          # React pages and routes
-├── styles/         # Global styles and theme
+├── redux/          # Redux files (store and slices)
 ```
 
 ## License
