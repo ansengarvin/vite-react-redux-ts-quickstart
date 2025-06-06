@@ -12,3 +12,5 @@ export const theme = {
         onSurface: "#ffffff", // White text on surface
     },
 };
+
+export type AppTheme = typeof theme;

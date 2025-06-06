@@ -100,7 +100,7 @@ const AppStyle = styled.div`
     }
     h2.count {
         display: inline-block;
-        color: #61dafb; // React blue
+        color: ${(props) => props.theme.colors.primary};
     }
     h2.animate {
         display: inline-block;
