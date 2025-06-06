@@ -45,9 +45,15 @@ export function App() {
                     <h2 className={`count ${animate ? "animate" : ""}`}>{count}</h2>
                 </span>
                 <div className="buttons">
-                    <button onClick={() => dispatch(trackerDispatch.decrement())}>Decrement</button>
-                    <button onClick={() => dispatch(trackerDispatch.clear())}>Clear</button>
-                    <button onClick={() => dispatch(trackerDispatch.increment())}>Increment</button>
+                    <button onClick={() => dispatch(trackerDispatch.decrement())} area-label="Decrease count">
+                        Decrement
+                    </button>
+                    <button onClick={() => dispatch(trackerDispatch.clear())} area-label="Clear count">
+                        Clear
+                    </button>
+                    <button onClick={() => dispatch(trackerDispatch.increment())} area-label="Increment count">
+                        Increment
+                    </button>
                 </div>
             </div>
             <p>
