@@ -7,8 +7,9 @@ import { useAppDispatch, type RootState } from "../redux/store";
 import { trackerDispatch } from "../redux/trackerSlice";
 import { keyframes } from "@emotion/react";
 import { useEffect, useState } from "react";
+import { CardButton } from "../components/CardButton";
 
-const BOUNCE_MS = 750; // Duration of the bounce animation in milliseconds
+const BOUNCE_MS = 500; // Duration of the bounce animation in milliseconds
 
 export function App() {
     const count = useSelector((state: RootState) => state.tracker.count);
@@ -38,16 +39,24 @@ export function App() {
                     <img src={redux} alt="Redux Toolkit logo" />
                 </a>
             </div>
-            <h1>Vite, React, Redux, Emotion, Typscript</h1>
+            <h1>Vite, React, Redux, Emotion, TypeScript</h1>
             <div className="card">
                 <span>
                     <h2>Count is </h2>
-                    <h2 className={`count ${animate ? "animate" : ""}`}>{count}</h2>
+                    <h2 key={count} className={`count ${animate ? "animate" : ""}`}>
+                        {count}
+                    </h2>
                 </span>
                 <div className="buttons">
-                    <button onClick={() => dispatch(trackerDispatch.decrement())}>Decrement</button>
-                    <button onClick={() => dispatch(trackerDispatch.clear())}>Clear</button>
-                    <button onClick={() => dispatch(trackerDispatch.increment())}>Increment</button>
+                    <CardButton onClick={() => dispatch(trackerDispatch.increment())} ariaLabel="Increment Count">
+                        Increment
+                    </CardButton>
+                    <CardButton onClick={() => dispatch(trackerDispatch.clear())} ariaLabel="Clear Count">
+                        Clear
+                    </CardButton>
+                    <CardButton onClick={() => dispatch(trackerDispatch.decrement())} ariaLabel="Decrement Count">
+                        Decrement
+                    </CardButton>
                 </div>
             </div>
             <p>
@@ -64,11 +73,11 @@ const bounceAnim = keyframes`
   }
 
   40%, 43% {
-    transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -15px, 0);
   }
 
   70% {
-    transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -10px, 0);
   }
 
   90% {
@@ -118,23 +127,5 @@ const AppStyle = styled.div`
     img {
         width: 50px;
         height: 50px;
-    }
-    button {
-        // Remove all styling
-        all: unset;
-
-        // Add my own styling
-        border: 2px solid white;
-        padding: 10px;
-        transition:
-            background-color 0.25s ease-in-out,
-            color 0.25s ease-in-out,
-            border 0.25s ease-in-out;
-    }
-
-    button:hover {
-        cursor: pointer;
-        background-color: white;
-        color: #282c34;
     }
 `;
