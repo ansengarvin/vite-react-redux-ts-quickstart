@@ -43,19 +43,23 @@ export function App() {
             <div className="card">
                 <span>
                     <h2>Count is </h2>
+                    {/* 
+                        Setting key={count} remounts component every time count changes, allowing animation to instantly
+                        replay on click.
+                    */}
                     <h2 key={count} className={`count ${animate ? "animate" : ""}`}>
                         {count}
                     </h2>
                 </span>
                 <div className="buttons">
-                    <CardButton onClick={() => dispatch(trackerDispatch.increment())} ariaLabel="Increment Count">
-                        Increment
+                    <CardButton onClick={() => dispatch(trackerDispatch.decrement())} ariaLabel="Decrement Count">
+                        Decrement
                     </CardButton>
                     <CardButton onClick={() => dispatch(trackerDispatch.clear())} ariaLabel="Clear Count">
                         Clear
                     </CardButton>
-                    <CardButton onClick={() => dispatch(trackerDispatch.decrement())} ariaLabel="Decrement Count">
-                        Decrement
+                    <CardButton onClick={() => dispatch(trackerDispatch.increment())} ariaLabel="Increment Count">
+                        Increment
                     </CardButton>
                 </div>
             </div>
