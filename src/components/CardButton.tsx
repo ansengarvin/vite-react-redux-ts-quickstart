@@ -10,7 +10,7 @@ export function CardButton(props: CardButtonProps) {
     const { children, onClick, ariaLabel } = props;
 
     return (
-        <CardButtonStyle className="card-button" onClick={onClick} aria-label={ariaLabel}>
+        <CardButtonStyle onClick={onClick} aria-label={ariaLabel}>
             {children}
         </CardButtonStyle>
     );
