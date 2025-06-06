@@ -21,7 +21,9 @@ const CardButtonStyle = styled.button`
     all: unset;
 
     // Add my own styling
-    border: 2px solid white;
+    background-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.onPrimary};
+    border-radius: 5px;
     padding: 10px;
     transition:
         background-color 0.25s ease-in-out,
@@ -34,7 +36,7 @@ const CardButtonStyle = styled.button`
     :hover,
     :focus-visible {
         cursor: pointer;
-        background-color: white;
-        color: #282c34;
+        background-color: ${(props) => props.theme.colors.primaryHover};
+        color: ${(props) => props.theme.colors.onPrimary};
     }
 `;

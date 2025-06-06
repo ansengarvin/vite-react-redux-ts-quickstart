@@ -100,7 +100,7 @@ const AppStyle = styled.div`
     }
     h2.count {
         display: inline-block;
-        color: #61dafb; // React blue
+        color: ${(props) => props.theme.colors.primary};
     }
     h2.animate {
         display: inline-block;
@@ -120,10 +120,10 @@ const AppStyle = styled.div`
         align-items: center;
         gap: 20px;
 
-        background-color: #282c34;
+        background-color: ${(props) => props.theme.colors.surface};
         width: 320px;
         height: min-content;
-        color: white;
+        color: ${(props) => props.theme.colors.onSurface};
         padding: 20px;
 
         border-radius: 10px;

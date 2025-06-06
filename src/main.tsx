@@ -1,9 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./pages/App.tsx";
-import { Global, css } from "@emotion/react";
+import { Global, ThemeProvider, css } from "@emotion/react";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
+import { theme } from "./styles/theme.ts";
 
 const globalStyle = css`
     // Border-box sizing prevents padding/border from expanding an element's total size
@@ -22,9 +23,11 @@ const globalStyle = css`
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <Global styles={globalStyle} />
-        <Provider store={store}>
-            <App />
-        </Provider>
+        <ThemeProvider theme={theme}>
+            <Global styles={globalStyle} />
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </ThemeProvider>
     </StrictMode>,
 );
