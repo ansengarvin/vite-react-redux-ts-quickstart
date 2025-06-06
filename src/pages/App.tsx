@@ -6,22 +6,17 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, type RootState } from "../redux/store";
 import { trackerDispatch } from "../redux/trackerSlice";
 import { keyframes } from "@emotion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const BOUNCE_MS = 750; // Duration of the bounce animation in milliseconds
 
 export function App() {
     const count = useSelector((state: RootState) => state.tracker.count);
     const dispatch = useAppDispatch();
-    const [animate, setAnimate] = useState(false);
-    const isFirstRender = useRef(true);
 
+    // Every time count is updated, set an animation to bounce the number
+    const [animate, setAnimate] = useState(false);
     useEffect(() => {
-        // Do not animate on the first render
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
-            return;
-        }
         setAnimate(true);
         const timer = setTimeout(() => {
             setAnimate(false);
